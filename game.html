@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MT Clicks - Core Matrix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="game-wrapper">
+        <header class="game-header">
+            <div class="header-box">
+                <span class="label">LEVEL</span>
+                <span id="levelDisplay" class="value">1 / 1000</span>
+            </div>
+            <!-- Interactive Menu Exit + Interactive Pause Toggles -->
+            <div class="header-control-cluster">
+                <button id="inGamePauseBtn" class="control-icon-btn" title="Pause Game (Esc)">⏸</button>
+                <button id="inGameBackBtn" class="control-icon-btn menu-return" title="Save & Exit to Menu">🏠</button>
+            </div>
+            <div class="header-box alert">
+                <span class="label">TIMER</span>
+                <span id="timerDisplay" class="value">30.0s</span>
+            </div>
+        </header>
+
+        <section class="progress-container">
+            <div class="progress-bar-bg">
+                <div id="progressBar" class="progress-bar-fill"></div>
+            </div>
+            <div id="goalDisplay" class="goal-text">0 / 10 Clicks</div>
+        </section>
+
+        <main class="interaction-vault">
+            <div id="clickTarget" class="click-target">
+                <div class="core-layer"></div>
+                <div id="critIndicator" class="crit-tag">CRIT!</div>
+            </div>
+        </main>
+
+        <section class="diagnostics-panel">
+            <div class="stat-col">
+                <span class="stat-label">CURRENT SPEED</span>
+                <span class="stat-val"><span id="cpsDisplay">0.0</span> <small>CPS</small></span>
+                <span id="speedRating" class="tier-tag">None</span>
+            </div>
+            <div class="stat-col">
+                <span class="stat-label">AVG CPS (MATCH)</span>
+                <span class="stat-val" id="avgCpsDisplay">0.0</span>
+                <span id="performanceGrade" class="tier-tag">Rank D</span>
+            </div>
+        </section>
+
+        <footer class="economy-footer">
+            <div class="currency-vault">
+                <div class="wallet-item">💎 Banked: <span id="walletDisplay">0</span></div>
+                <div class="wallet-item spent">🛠️ Spent: <span id="spentDisplay">0</span></div>
+            </div>
+            
+            <div class="store-grid">
+                <button id="upgradeBtn" class="action-btn" disabled>
+                    <span class="btn-title">⚡ Click Matrix</span>
+                    <span id="upgradeLevel" class="btn-sub">Lvl 1 (+1)</span>
+                    <span id="upgradeCost" class="btn-cost">Cost: 15 Clicks</span>
+                </button>
+                <button id="autoUpgradeBtn" class="action-btn" disabled>
+                    <span class="btn-title">🤖 Auto-Synthesizer</span>
+                    <span id="autoUpgradeLevel" class="btn-sub">Lvl 0 (0/s)</span>
+                    <span id="autoUpgradeCost" class="btn-cost">Cost: 50 Clicks</span>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- INTERACTIVE PAUSE MODAL SYSTEM LAYERS -->
+    <div id="pauseOverlay" class="overlay hidden">
+        <div class="overlay-card pause-card">
+            <h1>SYSTEM PAUSED</h1>
+            <p>Engine processing halted. Core loops held stable.</p>
+            <div class="pause-action-stack">
+                <button id="resumeRunBtn" class="overlay-action resume">RESUME WORKFLOW</button>
+                <button id="abortRunBtn" class="overlay-action abort">ABORT & RESET RUN</button>
+                <button id="exitToMenuBtn" class="overlay-action exit-clean">EXIT TO MAIN MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+        <div class="overlay-card">
+            <h1 id="overlayTitle">GAME OVER</h1>
+            <p id="overlayMessage">Sequence countdown hit zero before target metrics met.</p>
+            <button id="retryBtn" class="overlay-action">BACK TO MENU</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

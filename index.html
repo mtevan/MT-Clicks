@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MT Clicks - Main Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <canvas id="menuCanvas"></canvas>
+    
+    <div class="menu-container">
+        <h1 class="menu-title">MT CLICKS</h1>
+        <p class="menu-subtitle">NEON SPEED MATRIX</p>
+        
+        <div class="menu-actions">
+            <!-- Dynamic game state button anchors -->
+            <button id="startBtn" class="menu-btn start">NEW GAME</button>
+            <button id="resetRunBtn" class="menu-btn exit hidden">START OVER</button>
+            
+            <button id="rulesBtn" class="menu-btn">RULES OF ENGAGEMENT</button>
+            <button id="settingsBtn" class="menu-btn">MATRIX SETTINGS</button>
+            <button id="exitBtn" class="menu-btn exit">TERMINATE</button>
+        </div>
+    </div>
+
+    <!-- Interface Modal -->
+    <div id="menuModal" class="modal hidden">
+        <div class="modal-content">
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+            
+            <div id="rulesContent" class="hidden">
+                <h2>RULES OF ENGAGEMENT</h2>
+                <hr>
+                <ul>
+                    <li><strong>The Node:</strong> Click the morphing core target to harvest high-yield crystals.</li>
+                    <li><strong>The Clock:</strong> Clear the numerical click quota before the countdown hits 0.0s.</li>
+                    <li><strong>Pausing:</strong> Tap the pause icon inside the matrix viewport or hit <code>Esc</code> to freeze your progress.</li>
+                    <li><strong>Critical Shifts:</strong> Hit the node while it flashes gold for a 3x generation burst.</li>
+                </ul>
+            </div>
+            
+            <div id="settingsContent" class="hidden">
+                <h2>MATRIX CONFIGURATIONS</h2>
+                <hr>
+                <div class="settings-row">
+                    <label>Ambient Drifters:</label>
+                    <input type="checkbox" id="particleToggle" checked>
+                </div>
+                <div class="settings-row">
+                    <label for="critVolume">Critical Chance Scale:</label>
+                    <select id="critVolume">
+                        <option value="0.08">Standard Matrix (8%)</option>
+                        <option value="0.15">Overcharged Matrix (15%)</option>
+                        <option value="0.04">Hardcore Matrix (4%)</option>
+                    </select>
+                </div>
+                <div id="critDesc" class="setting-description">
+                    Standard Matrix (8%): The standard game balance.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+</html>
